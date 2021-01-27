@@ -1,0 +1,107 @@
+"@startuml Planning"
+
+Class Person {
+    string name
+    ==Private==
+    int age
+}
+
+Class Customer {
+    string name
+    string saleID
+    string returnDate
+    ==Private==
+    int funds
+  --Method--
+    +requestBooking()
+    +hireScooter()
+    +returnScooter()
+    +chargeScooter()
+}
+
+Class SalesPerson {
+    string name
+    string salesID
+    --Method--
+    +completeSale(salesID)
+
+}
+
+Class Scooter {
+    string name
+    int chargePercentage
+    int scooterID
+    array scooterList
+    boolean scooterHired
+    --Method--
+    +isCharged()
+    +timeLeft()
+    +powerOn()
+    +powerOff()
+    +batteryStatus()
+    +Drive()
+    +returnScooter()
+    +chargeScooter()
+    +repairScooter()
+}
+
+Class ScooterHireSystem {
+    array scooterList
+    array customerList
+    --Method--
+    +scooterHire()
+    +scooterBooking()
+    +scooterCharge()
+    +scooterFix()
+    +assignScooter()
+}
+
+Class Sales {
+    string customerName
+    string purchaseDate
+    string email
+    int phoneNumber
+    int price
+    --Method--
+    +totalCost(price)
+    +allSalesData()
+}
+
+Class StoreSales{
+    string storeName
+    string salesPerson
+    string salesLocation
+    array allSales
+    --Method--
+    +scooterSale()
+    +scooterBooking()
+}
+
+Class ChargingStation {
+    string location
+    string scooterID
+    int chargePercentage
+    --Method--
+    +chargeScooter()
+    +batteryStatus()
+}
+
+StoreSales *--  Sales 
+
+SalesPerson *-- Person
+
+Customer *-- Person
+
+StoreSales *-- SalesPerson
+
+Customer ..> StoreSales
+
+Scooter <-- Customer 
+
+Scooter .. ChargingStation
+
+ScooterHireSystem <.. StoreSales
+
+Scooter .. ScooterHireSystem
+
+' Maybe include a batterry class

@@ -1,0 +1,19 @@
+@startuml
+title AcquireScooterProcess
+
+actor customer #SaddleBrown
+
+actor salesperson
+participant ScooterHireSystem
+participant Scooter
+database ScooterHireSystem
+entity mechanic
+
+customer-->salesperson: Request to Hire/Book
+salesperson-->customer: Quote and or TotalCost
+customer-->salesperson: Paid TotalCost or Quote
+salesperson->ScooterHireSystem: check for any available scooters
+ScooterHireSystem->customer: Assign Scooter
+Scooter->customer: Acquire
+
+@enduml

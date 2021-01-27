@@ -1,0 +1,59 @@
+@startuml Scooter Hire
+
+left to right direction
+
+actor Customer as Cust1
+
+package ScooterHireSystem {
+    usecase "Assign Scooter" as UC1
+
+    package SalesPoint {
+         usecase "Scooter Sale" as UC2
+         actor SalesPerson as fc1
+         usecase "Scooter Booking" as UC3
+    }
+}
+
+package Scooter {
+    usecase "Turn the Power On" as UC4
+    usecase "Turn the Power Off" as UC5
+    usecase "Drive" as dri
+    usecase "Return Scooter" as returnS
+    usecase "Repair Scooter" as repairS
+
+    package battery {
+        usecase "Check if Fully Charged" as isFullC
+        usecase "Check Time left on Charge" as timeL
+        usecase "Charge Scooter" as chargS
+        usecase "Battery Status" as scoBatterySt
+    }
+}
+
+package ChargingStation {
+    usecase "Charge Scooter" as chargeStatChargeS
+    usecase "BatteryStatus" as chargeStatBatteryS
+}
+
+Cust1 ---> fc1
+
+fc1 ..> UC3
+fc1 ..> UC2
+
+SalesPoint ..> UC1
+
+
+chargS <---> chargeStatChargeS
+scoBatterySt <---> chargeStatBatteryS
+
+' UC1 ---> Scooter
+
+' ScooterHireSystem ...> Scooter
+ScooterHireSystem .....> dri
+ScooterHireSystem .....> UC4
+ScooterHireSystem .....> UC5
+ScooterHireSystem .....> returnS
+ScooterHireSystem .....> repairS
+
+' Maybe add a class actor to maintain the scooter
+
+@enduml

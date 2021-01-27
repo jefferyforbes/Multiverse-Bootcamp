@@ -1,0 +1,50 @@
+--- Overview Tasks ---
+
+- Class Diagram for the main classes (nouns) in ther scooter system show relationships between classes (inheritance, composition)
+
+- Sequence diagram showing the interactions between the classes
+
+- directory structure 
+	=> scooters/src
+		/test
+		/resources
+
+- code up classes (based on your class diagram), fields & methods
+
+- unit test every clss (100% test coverage) => upload screenshot of 
+
+- JSDoc you classes (generate all jsdoc into a single index.html "jsdoc .")
+
+
+classes
+	- Customer
+	- Sales Person
+	- ScooterHireSystem
+	- Scooter
+	- Scooter Battery
+	- Customer Booking
+
+** Users can only hire and unplug the scooter if the battery is full
+** Users always use up the full battery
+** It takes 2000 milliseconds to charge a scooter
+** Scooters have an ID
+
+Class Methods
+	(Customer)
+		- Login() => 
+	
+	
+	
+	
+	(Sales Person)
+		- 
+
+
+
+
+	Charge() 
+		- Calculate charge left with the use of charge per distance travelled/time with scooter
+		- use the await/ timeout function to wait while the scooter charges
+
+
+	Cost() intial cost will be lowered and markup increase based on a incremental time held and distance travelled

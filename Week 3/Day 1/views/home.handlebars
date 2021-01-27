@@ -1,0 +1,22 @@
+<h1>Restaurants</h1>
+<section>
+    {{#each restaurants}}
+    <a href="/restaurants/{{this.id}}">
+        <article>
+            <header style="background-image: url({{this.image}});"></header>
+                <main>
+                    <h1>{{this.name}}</h1>
+                    <br>
+                        {{#each this.menus}}
+                            <p>{{this.title}}</p>
+                                <p>{{#each this.items}}</p>
+                                <br>
+                            <p>{{this.name}} £{{this.price}}</p>
+                        {{/each}}
+                    {{/each}}
+                </main>
+            <footer>{{this.menus.length}}menus</footer>
+        </article>
+        </a>
+        {{/each}}
+</section>
