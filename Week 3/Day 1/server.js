@@ -52,18 +52,13 @@ app.get("/", async (req, res) => {
 
 // The route for the anchor tags to the specific restaurants
 app.get("/restaurants/:id", async (req, res) => {
-    console.log("get restaurant with ID:", req.params.id)
-    res.send()
-})
-
-app.get("/restaurants/:id", async (req, res) => {
     // Uses the Primary key in the restaurant class to match to the relevant restaurant menus
     const restaurant = await Restaurant.findByPk(req.params.id)
     const menus = await restaurant.getMenus({
-        include: [{model: Item, as: "items"}],
+        include: [{model: MenuItem, as: "items"}],
         nest: true
     })
-    res.render("restaurant", {restaurant, menus})
+    res.render("restaurants", {restaurant, menus})
 })
 
 app.listen(port, () => {
