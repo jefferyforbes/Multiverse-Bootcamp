@@ -61,6 +61,44 @@ app.get("/restaurants/:id", async (req, res) => {
     res.render("restaurants", {restaurant, menus})
 })
 
+// -- CRUD --
+
+ // -----Create------
+app.get("/new", (request, response) => {
+    response.render("new")
+
+    app.post('/restaurants', async (req, res) => {
+        // console.log(req.body);
+        const restaurant = await Restaurant.create(req.body)
+        res.redirect('/')
+    })
+})
+
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
+// ------Delete------
+
+// app.route("/restaurants/:id/delete").get((req,res)=> {
+//     res.redirect("/")
+// }).post((req,res) => {
+//     console.log(req.params.id)
+//     Restaurant.findByPk(req.params.id)
+//     .then(restaurant => {
+//         restaurant.destroy()
+//         res.redirect("/")
+//     }).catch(error => console.log(error)) 
+// })
+
+app.post("/restaurants/:id/delete", async (req, res) => {
+    console.log(req.params.id)
+    await Restaurant.findByPk(req.params.id)
+    .then(restaurant => {
+        restaurant.destroy()
+        res.redirect("/")})
+})
+
+
 app.listen(port, () => {
     console.log("Server spinning up!")
 })

@@ -1,15 +1,26 @@
-<h1>{{restaurant.name}}</h1>
-<section>
-    {{#each menus}}
-    <article>
-        <h2>{{this.title}}</h2>
-        <dl>{{#each this.items}}</dl>
-            <div>
-                <dt>{{this.name}}</dt>
-                <dd>£{{this.price}}</dd>
-            </div>
-        {{/each}}
-        </dl>
-    </article>
+<h1 if="title-rest">{{restaurant.name}}</h1>
+    <section id="restaurant-section">
+        <header id="restaurant-image" style="background-image: url({{restaurant.image}});"></header>
+            <br>
+            {{#each menus}}
+            <article>
+                <h2 id="menus">{{this.title}}</h2>
+                <dl>{{#each this.items}}</dl>
+                    <div>
+                        <dt>{{this.name}}</dt>
+                        <dd>£{{this.price}}</dd>
+                        <br>
+                    </div>
+                    {{/each}}
+                </dl>
+            </article>
     {{/each}}
+     <div id="btn-group">
+
+        <a href="/" id="BnM-BTN">Back</a>
+
+         <form action="/restaurants/{{restaurant.id}}/delete" method="post">
+            <input type="submit" id="BnM-BTN" name="Delete" value="Delete"/>
+        </form>
+    </div>
 </section>

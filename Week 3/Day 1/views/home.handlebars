@@ -1,21 +1,24 @@
-<h1>Restaurants</h1>
+<h1 id="main-heading">Restaurants</h1>
+ <a href="/new/" id="BnM-BTN">Create</a>
 <section>
     {{#each restaurants}}
     <a href="/restaurants/{{this.id}}">
         <article>
             <header style="background-image: url({{this.image}});"></header>
                 <main>
-                    <h1>{{this.name}}</h1></a>
+                    <h1 id="rest-title">{{this.name}}</h1></a>
                     <br>
-                        {{#each this.menus}}
-                            <p>{{this.title}}</p>
+                        <p id="test">{{#each this.menus}}</p>
+                            <p id="menus">{{this.title}}</p>
                                 <p>{{#each this.items}}</p>
                                 <br>
-                            <p>{{this.name}} £{{this.price}}</p>
+                                <p>{{restaurant.id}}</p>
+                            <p id="items">{{this.name}} -- <em>£{{this.price}}</em></p>
+                            <br>
                         {{/each}}
                     {{/each}}
                 </main>
-            <footer>{{this.menus.length}}menus</footer>
+            {{!-- <footer>{{this.menus.length}}menus</footer> --}}
         </article>
         {{/each}}
 </section>

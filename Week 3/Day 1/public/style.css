@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
 * {
+    font-family: 'Raleway', sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -8,13 +11,100 @@ body {
     font-family: 'Times New Roman', Times, serif;
     background-color: rgba(37, 35, 35, 0.226);
     padding-left: 0.5em;
-    width: 100%;
-    padding: 1rem;
+    width: 90%;
+    padding: 2rem;
+    margin: 4rem;
 
+}
+
+#btn-group {
+    grid-template-columns: auto auto;
+}
+
+#main-heading {
+    margin: 3rem;
+    font-size: 3rem;
+    padding: 3rem;
+}
+
+#rest-title {
+    font-size: 3rem;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 5fr;
+    place-items: center;
+}
+
+#test {
+    color: red;
+}
+
+#menus {
+    font-style: oblique;
+    color: rgb(54, 69, 121);
+    box-shadow: 10px 5px 30px 15px #1815153b;
+    border: skyblue;
+    border-radius: 3rem;
+    border-width: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.8rem;
+    z-index: 5;
+    font-size: 2.2rem;
+    text-shadow: seagreen;
+}
+
+#items {
+    font-size: 1.5rem;
+    text-decoration-style: wavy;
+}
+
+a {
+    text-decoration: none;
+}
+
+#BnM-BTN {
+    position: relative;
+    display: inline-block;
+    padding: 12px 36px;
+    margin: 10px 0;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    background: linear-gradient(90deg,#1765b8, #57d2e6);
+}
+
+#BnM-BTN:hover {
+    transition: all ease-in-out 500ms 500ms;
+    background: linear-gradient(90deg,#b82a17, #d85f5f);
+    transition-timing-function: ease-in-out;
+    transition-property: all;
+}
+
+#restaurant-image {
+    width: auto;
+    height: 36rem;
+    display: grid;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#restaurant-section {
+    margin-top: 0rem;
+    padding-top: 0rem;
+    grid-template-columns: 5fr;
+    width: 100%;
+    margin: 1rem 5rem 0 5rem;
+    padding: 1rem 5rem 0 5rem;
 }
 
 h1 {
     padding: 1rem;
+    display: grid;
+    justify-content: center;
     border-bottom: double 3px black;
     text-align: center;
     grid-template-columns: auto;
@@ -23,9 +113,9 @@ h1 {
 article {
     border: solid black 1px;
     width: auto;
-    height: 35rem;
-    margin: 1rem 1rem;
-    padding: 2rem;
+    height: auto;
+    margin: 1rem;
+    padding: 1rem;
     text-align: center;
     list-style-type: none;
     /* below */
@@ -33,13 +123,16 @@ article {
     display: -ms-flexbox;
     -ms-flex-direction: column;
     flex-direction: column;
-    overflow: scroll;
     word-wrap: break-word;
     background-color: cornflowerblue;
     background-clip: border-box;
     border: 5px solid rgba(0, 0, 0, 0.125);
-    border-radius: 1.5rem;
-    z-index: 6; 
+    border-radius: 1.2rem;
+    z-index: 4; 
+}
+
+article::before {
+    border: solid 5px;
 }
 
 article header {
@@ -53,6 +146,10 @@ article header {
     background-size: cover;
 }
 
+section {
+    display: grid;
+}
+
 /* Media Screen */
 @media screen and (min-width: 40em) {
     body {
@@ -62,14 +159,14 @@ article header {
     section {
         margin: 1rem;
         display: grid;
-        grid-template-columns: auto ;
+        grid-template-columns: auto;
         grid-template-rows: auto;
         gap: 1rem;
     }
 
     article {
-        margin: 0;
-        width: 100%;
+        margin: 1rem;
+        padding: 3.5rem;
     }
 }
 
@@ -77,6 +174,11 @@ article header {
 @media screen and (min-width: 60em) {
     body{
         background-color: coral;
+    }
+
+    article {
+        margin-bottom: 5rem;
+        padding: 5rem;
     }
 
     section {
