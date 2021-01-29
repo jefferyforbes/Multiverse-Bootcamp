@@ -28,7 +28,7 @@ app.get("/about", (request, response) => {
     response.render("about", {date: new Date()})
 })
 
-// -----------------------
+//-----------------------
 
 app.get("/", async (req, res) => {
     {date: new Date()}
@@ -52,6 +52,7 @@ app.get("/", async (req, res) => {
 
 // The route for the anchor tags to the specific restaurants
 app.get("/restaurants/:id", async (req, res) => {
+    console.log("ID is" + req.params.id)
     // Uses the Primary key in the restaurant class to match to the relevant restaurant menus
     const restaurant = await Restaurant.findByPk(req.params.id)
     const menus = await restaurant.getMenus({
@@ -61,23 +62,61 @@ app.get("/restaurants/:id", async (req, res) => {
     res.render("restaurants", {restaurant, menus})
 })
 
-// -- CRUD --
+//---CRUD---
 
- // -----Create------
+ //---------Create----------
 app.get("/new", (request, response) => {
     response.render("new")
 
-    app.post('/restaurants', async (req, res) => {
+    app.post("/restaurants", async (req, res) => {
         // console.log(req.body);
         const restaurant = await Restaurant.create(req.body)
-        res.redirect('/')
+        res.redirect("/")
     })
 })
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-// ------Delete------
+//-----------Delete----------
+app.post("/restaurants/:id/delete", async (req, res) => {
+    console.log(req.params.id)
+    await Restaurant.findByPk(req.params.id)
+    .then(restaurant => {
+        restaurant.destroy()
+        res.redirect("/")})
+})
+
+//-----------Edit---------------
+
+app.get("/restaurants/:id/edit", async (req, res) => {
+    console.log(req.params.id)
+    const restaurant = await Restaurant.findByPk(req.params.id)
+    res.render("editpage", {restaurant})
+
+    app.post("/restaurants/:id/edit", async (req, res) => {
+            console.log("ID is in edit: " + req.params.id)
+            const restaurant = await Restaurant.findByPk(req.params.id)
+            await restaurant.update(req.body)
+            res.redirect("/restaurants/${restaurant.id}")
+        })
+    
+});
+
+// app.post("/restaurants/:id/edit", async (req, res) => {
+//     console.log("ID is in edit: " + req.params.id)
+//     const restaurant = await Restaurant.findByPk(req.params.id)
+//     await restaurant.update(req.body)
+//     res.redirect("/restaurants/${restaurant.id}")
+// })
+
+
+//----------RUN SERVER-------------
+app.listen(port, () => {
+    console.log("Server spinning up!")
+})
+
+// ----------------------------------------
 
 // app.route("/restaurants/:id/delete").get((req,res)=> {
 //     res.redirect("/")
@@ -89,16 +128,3 @@ app.use(express.json())
 //         res.redirect("/")
 //     }).catch(error => console.log(error)) 
 // })
-
-app.post("/restaurants/:id/delete", async (req, res) => {
-    console.log(req.params.id)
-    await Restaurant.findByPk(req.params.id)
-    .then(restaurant => {
-        restaurant.destroy()
-        res.redirect("/")})
-})
-
-
-app.listen(port, () => {
-    console.log("Server spinning up!")
-})

@@ -18,13 +18,20 @@ body {
 }
 
 #btn-group {
-    grid-template-columns: auto auto;
+    display: flex;
+    flex-flow: row;
+}
+
+#btn-group #BnM-BTN {
+    margin-right: 3rem;
 }
 
 #main-heading {
-    margin: 3rem;
     font-size: 3rem;
-    padding: 3rem;
+    margin: 2.2rem;
+    padding: 2.2rem;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 #rest-title {
