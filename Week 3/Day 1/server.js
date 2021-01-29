@@ -52,7 +52,7 @@ app.get("/", async (req, res) => {
 
 // The route for the anchor tags to the specific restaurants
 app.get("/restaurants/:id", async (req, res) => {
-    console.log("ID is" + req.params.id)
+    // testing purpose: console.log("ID is " + req.params.id)
     // Uses the Primary key in the restaurant class to match to the relevant restaurant menus
     const restaurant = await Restaurant.findByPk(req.params.id)
     const menus = await restaurant.getMenus({
@@ -63,7 +63,6 @@ app.get("/restaurants/:id", async (req, res) => {
 })
 
 //---CRUD---
-
  //---------Create----------
 app.get("/new", (request, response) => {
     response.render("new")
@@ -90,41 +89,27 @@ app.post("/restaurants/:id/delete", async (req, res) => {
 //-----------Edit---------------
 
 app.get("/restaurants/:id/edit", async (req, res) => {
-    console.log(req.params.id)
     const restaurant = await Restaurant.findByPk(req.params.id)
-    res.render("editpage", {restaurant})
-
-    app.post("/restaurants/:id/edit", async (req, res) => {
-            console.log("ID is in edit: " + req.params.id)
-            const restaurant = await Restaurant.findByPk(req.params.id)
-            await restaurant.update(req.body)
-            res.redirect("/restaurants/${restaurant.id}")
-        })
+    res.render("edit", {restaurant})
+})
     
-});
+//---- Update -----
+app.post("/restaurants/:id/edit", async (req, res) =>{
+    const restaurant = await Restaurant.findByPk(req.params.id)
+    console.log(req.params.id)
 
-// app.post("/restaurants/:id/edit", async (req, res) => {
-//     console.log("ID is in edit: " + req.params.id)
-//     const restaurant = await Restaurant.findByPk(req.params.id)
-//     await restaurant.update(req.body)
-//     res.redirect("/restaurants/${restaurant.id}")
-// })
+    await restaurant.update(req.body)
 
+    await restaurant.save()
+    console.log("Restaurant edit was Successful!")
+    await restaurant.reload()
+
+    res.redirect(`/restaurants/${restaurant.id}`)
+})
 
 //----------RUN SERVER-------------
 app.listen(port, () => {
     console.log("Server spinning up!")
 })
 
-// ----------------------------------------
-
-// app.route("/restaurants/:id/delete").get((req,res)=> {
-//     res.redirect("/")
-// }).post((req,res) => {
-//     console.log(req.params.id)
-//     Restaurant.findByPk(req.params.id)
-//     .then(restaurant => {
-//         restaurant.destroy()
-//         res.redirect("/")
-//     }).catch(error => console.log(error)) 
-// })
+// ------------------DUMP/STORAGE----------------------
