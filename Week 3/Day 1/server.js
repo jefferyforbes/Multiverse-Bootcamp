@@ -3,11 +3,13 @@ const app = express();
 const Handlebars = require("handlebars")
 const expressHandlebars = require("express-handlebars")
 const {allowInsecurePrototypeAccess} = require("@handlebars/allow-prototype-access");
-const { Restaurant } = require("./Restaurant");
-const { Menu } = require("./Menu");
-const { response } = require("express");
-const { MenuItem } = require("./MenuItem");
-const loadAndInsert = require("./populateDB")
+const {Restaurant} = require("./Restaurant");
+const {Menu} = require("./Menu");
+const {response} = require("express");
+const {MenuItem} = require("./MenuItem");
+const {Rating} = require("./Rating")
+const loadAndInsert = require("./populateDB");
+
 
 const port = 3000;
 
@@ -27,8 +29,6 @@ app.get("/restaurant", (request, response) => {
 app.get("/about", (request, response) => {
     response.render("about", {date: new Date()})
 })
-
-//-----------------------
 
 app.get("/", async (req, res) => {
     {date: new Date()}
@@ -59,7 +59,12 @@ app.get("/restaurants/:id", async (req, res) => {
         include: [{model: MenuItem, as: "items"}],
         nest: true
     })
-    res.render("restaurants", {restaurant, menus})
+
+    // ------Rating Function-------
+    // const rating = await restaurant.getRating({include: [{model: Review, as: "review"}],
+    //     nest: true})
+
+    res.render("restaurants", {restaurant, menus}) // Add Rating back in when finished
 })
 
 //---CRUD---
@@ -87,7 +92,6 @@ app.post("/restaurants/:id/delete", async (req, res) => {
 })
 
 //-----------Edit---------------
-
 app.get("/restaurants/:id/edit", async (req, res) => {
     const restaurant = await Restaurant.findByPk(req.params.id)
     res.render("edit", {restaurant})
@@ -110,6 +114,6 @@ app.post("/restaurants/:id/edit", async (req, res) =>{
 //----------RUN SERVER-------------
 app.listen(port, () => {
     console.log("Server spinning up!")
-})
+});
 
-// ------------------DUMP/STORAGE----------------------
+// ------------------CODE DUMP/STORAGE----------------------

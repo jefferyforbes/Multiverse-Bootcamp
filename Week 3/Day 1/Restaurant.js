@@ -1,5 +1,7 @@
-const {sequelize, DataTypes, Model} = require('./sequelize_index');
-const {Menu} = require('./Menu')
+const {sequelize, DataTypes, Model} = require("./sequelize_index");
+const {Menu} = require("./Menu");
+const {Rating} = require("./Rating");
+const {Review} = require("./Review");
 
 /**
  * Represents a Restaurant
@@ -15,15 +17,22 @@ Restaurant.init({
     timestamps: false,
 });
 
-Restaurant.hasMany(Menu, {as: "menus",  foreignKey: 'restaurant_id' });
 /* The hasMany means that for each restaurant there are many menus and the
  restaurndtID key likes the relevant menu to correct restaurant. */
+
+Restaurant.hasMany(Menu, {as: "menus",  foreignKey: 'restaurant_id' });
 Menu.belongsTo(Restaurant, {foreignKey: 'restaurant_id'});
+
+// -----------------------------------
+Restaurant.hasMany(Rating, {as: "ratings", foreignKey: "restaurant_id"})
+Rating.belongsTo(Restaurant, {foreignKey: "restaurant_id"})
+
+Restaurant.hasMany(Review, {as: "review", foreignKey: "restaurant_id"})
+Review.belongsTo(Restaurant, {foreignKey: "restaurant_id"});
 
 module.exports = {Restaurant};
 
-// // local testing - remove when using Jest
-
+//---------------local testing - remove when using Jest---------------
 // (async () => {
 //     await sequelize.sync({ force: true });
 //     const r = await Restaurant.create({ name: 'Ronalds', image: 'http://some.image.url' })

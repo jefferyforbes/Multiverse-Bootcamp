@@ -1,5 +1,5 @@
 <h1 id="main-heading">Restaurants</h1>
- <a href="/new/" id="BnM-BTN">Create</a>
+ <a href="/new/" id="BnM-BTN" class="createNew">Create New</a>
 <section>
     {{#each restaurants}}
     <a href="/restaurants/{{this.id}}">
@@ -16,9 +16,11 @@
                             <p id="items">{{this.name}} -- <em>£{{this.price}}</em></p>
                             <br>
                         {{/each}}
+                        <p>{{this.ratings}}</p>
                     {{/each}}
                 </main>
-            {{!-- <footer>{{this.menus.length}}menus</footer> --}}
+                <br>
+            <footer id="menusNumber">{{this.menus.length}} Menus</footer>
         </article>
         {{/each}}
 </section>

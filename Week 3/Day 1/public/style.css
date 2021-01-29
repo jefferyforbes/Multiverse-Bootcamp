@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
 * {
     font-family: 'Raleway', sans-serif;
@@ -46,6 +48,15 @@ body {
     color: red;
 }
 
+#menusNumber, #main-heading, #items {
+    font-family: 'Dancing Script', cursive;
+}
+
+#menusNumber {
+    font-size: 3.5rem;
+    margin-top: 2rem;
+}
+
 #menus {
     font-style: oblique;
     color: rgb(54, 69, 121);
@@ -61,7 +72,8 @@ body {
 }
 
 #items {
-    font-size: 1.5rem;
+    font-size: 2.2rem;
+    font-family: 'Parisienne', cursive;
     text-decoration-style: wavy;
 }
 
@@ -117,10 +129,19 @@ h1 {
     grid-template-columns: auto;
 }
 
+article:hover {
+    transition: all 5000ms ease;
+    /* animation-delay: 5000ms;
+    transition-property: all;
+    transition-delay: 67500ms; */
+    height: auto;
+}
+
 article {
     border: solid black 1px;
     width: auto;
-    height: auto;
+    overflow: hidden;
+    height: 36rem;
     margin: 1rem;
     padding: 1rem;
     text-align: center;
@@ -157,28 +178,54 @@ section {
     display: grid;
 }
 
+/* --------------MEDIA QUERIES------------- */
+
 /* Media Screen */
-@media screen and (min-width: 40em) {
+@media screen and (max-width: 200px) {
     body {
         background-color: grey;
+        width: 80%;
+        margin: 2rem;
+        padding: 2rem;
     }
 
     section {
         margin: 1rem;
         display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: auto;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
         gap: 1rem;
     }
 
+    #restaurant-image{
+        height: 10rem;
+        width: auto;
+    }
+
     article {
+        height: auto;
         margin: 1rem;
         padding: 3.5rem;
+    }
+
+    article header {
+        height: auto;
+        width: auto
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        padding: 0;
+    }
+    article {
+        margin: 2rem 0 0 1.45rem;
+        padding: 0;
     }
 }
 
 /* Large Screen */
-@media screen and (min-width: 60em) {
+@media screen and (max-width: 650px) {
     body{
         background-color: coral;
     }
@@ -189,18 +236,10 @@ section {
     }
 
     section {
-        grid-template-columns: auto auto;
-        grid-template-rows: auto;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
         display: grid;
-    }
-}
-
-@media screen and (max-width: 200px) {
-    body {
-        padding: 0;
-    }
-    article {
-        margin: 2rem 0 0 1.45rem;
-        padding: 0;
+        height: auto;
+        width: auto;
     }
 }
