@@ -1,0 +1,19 @@
+# Mobile
+
+ ## Home Page
+
+- The document doesnt have a title element
+- The links dont have discernible names
+- 
+
+
+
+
+
+
+
+# Desktop 
+
+ ## Home Page
+
+- 

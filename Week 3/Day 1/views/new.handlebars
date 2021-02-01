@@ -1,13 +1,13 @@
 <h2>Add Restaurant</h2>
 
-<a href="/" id="BnM-BTN">Home</a>
+<a href="/" class="BnM-BTN">Home</a>
 <br>
-<form action="/restaurants" method="POST" target="_blank" autocomplete="on">
+<form action="/restaurants" method="POST" target="_blank" autocomplete="on" aria-label="Form to take user input to create a new restaurant.">
     <label>Name:</label><br>
-    <input type="text" name="name" placeholder="name" required><br>
+    <input type="text" name="name" placeholder="name" required aria-label="The title or name of the new Restaurant"><br>
 
     <label>Image:</label><br>
-    <input type="url" name="image" placeholder="https://idasidaiio.com"  required><br><br>
+    <input type="url" name="image" placeholder="https://idasidaiio.com" required aria-label="The link to the image of the restaurant"><br><br>
 
     <input type="submit" value="Submit">
 </form>

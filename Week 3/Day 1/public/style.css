@@ -13,51 +13,48 @@ body {
     font-family: 'Times New Roman', Times, serif;
     background-color: rgba(37, 35, 35, 0.226);
     padding-left: 0.5em;
-    width: 90%;
-    padding: 2rem;
-    margin: 4rem;
-
+    width: 80%;
+    padding: 0 4rem 0 0.5rem;
+    margin: 0 4rem 0 0.5rem;
 }
 
-#btn-group {
+.btn-group {
     display: flex;
     flex-flow: row;
 }
 
-#btn-group #BnM-BTN {
+.btn-group .BnM-BTN {
     margin-right: 3rem;
 }
 
-#main-heading {
+.main-heading {
     font-size: 3rem;
     margin: 2.2rem;
     padding: 2.2rem;
+    padding-left: 5rem;
     margin-top: 0;
     padding-top: 0;
 }
 
-#rest-title {
-    font-size: 3rem;
+.rest-title {
+    font-size: 2rem;
     text-decoration: none;
-    display: grid;
-    grid-template-columns: 5fr;
-    place-items: center;
 }
 
-#test {
+.test {
     color: red;
 }
 
-#menusNumber, #main-heading, #items {
+.menusNumber, #main-heading, #items {
     font-family: 'Dancing Script', cursive;
 }
 
-#menusNumber {
+.menusNumber {
     font-size: 3.5rem;
     margin-top: 2rem;
 }
 
-#menus {
+.menus {
     font-style: oblique;
     color: rgb(54, 69, 121);
     box-shadow: 10px 5px 30px 15px #1815153b;
@@ -71,7 +68,7 @@ body {
     text-shadow: seagreen;
 }
 
-#items {
+.items {
     font-size: 2.2rem;
     font-family: 'Parisienne', cursive;
     text-decoration-style: wavy;
@@ -81,7 +78,7 @@ a {
     text-decoration: none;
 }
 
-#BnM-BTN {
+.BnM-BTN {
     position: relative;
     display: inline-block;
     padding: 12px 36px;
@@ -95,7 +92,7 @@ a {
     background: linear-gradient(90deg,#1765b8, #57d2e6);
 }
 
-#BnM-BTN:hover {
+.BnM-BTN:hover {
     transition: all ease-in-out 500ms 500ms;
     background: linear-gradient(90deg,#b82a17, #d85f5f);
     transition-timing-function: ease-in-out;
@@ -104,7 +101,7 @@ a {
 
 #restaurant-image {
     width: auto;
-    height: 36rem;
+    height: 30rem;
     display: grid;
     background-position: center center;
     background-repeat: no-repeat;
@@ -114,10 +111,7 @@ a {
 #restaurant-section {
     margin-top: 0rem;
     padding-top: 0rem;
-    grid-template-columns: 5fr;
     width: 100%;
-    margin: 1rem 5rem 0 5rem;
-    padding: 1rem 5rem 0 5rem;
 }
 
 h1 {
@@ -131,19 +125,21 @@ h1 {
 
 article:hover {
     transition: all 5000ms ease;
-    /* animation-delay: 5000ms;
-    transition-property: all;
-    transition-delay: 67500ms; */
+    overflow: visible;
     height: auto;
+}
+
+#hiddenLinkName {
+    display: none;
 }
 
 article {
     border: solid black 1px;
-    width: auto;
-    overflow: hidden;
-    height: 36rem;
-    margin: 1rem;
-    padding: 1rem;
+    width: 15rem;
+    overflow: visible;
+    height: auto;
+    margin: 2rem;
+    padding: 2rem;
     text-align: center;
     list-style-type: none;
     /* below */
@@ -155,7 +151,7 @@ article {
     background-color: cornflowerblue;
     background-clip: border-box;
     border: 5px solid rgba(0, 0, 0, 0.125);
-    border-radius: 1.2rem;
+    border-radius: 1.3rem;
     z-index: 4; 
 }
 
@@ -164,7 +160,7 @@ article::before {
 }
 
 article header {
-    height: 24rem;
+    height: 20rem;
     width: auto;
     font-weight: 1000;
     text-align: center;
@@ -176,70 +172,31 @@ article header {
 
 section {
     display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
 }
 
 /* --------------MEDIA QUERIES------------- */
 
 /* Media Screen */
-@media screen and (max-width: 200px) {
-    body {
-        background-color: grey;
-        width: 80%;
-        margin: 2rem;
-        padding: 2rem;
-    }
 
-    section {
-        margin: 1rem;
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto;
-        gap: 1rem;
-    }
-
-    #restaurant-image{
-        height: 10rem;
-        width: auto;
-    }
-
-    article {
-        height: auto;
-        margin: 1rem;
-        padding: 3.5rem;
-    }
-
-    article header {
-        height: auto;
-        width: auto
-    }
-}
-
-@media screen and (max-width: 400px) {
-    body {
-        padding: 0;
-    }
-    article {
-        margin: 2rem 0 0 1.45rem;
-        padding: 0;
-    }
+@media screen and (min-width: 400px) {
+  body {
+      padding: 0;
+      margin: 0;
+  }
 }
 
 /* Large Screen */
-@media screen and (max-width: 650px) {
-    body{
-        background-color: coral;
-    }
+@media screen and (min-width: 850px) {
+  section {
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: auto auto auto;
+  }
+}
 
-    article {
-        margin-bottom: 5rem;
-        padding: 5rem;
-    }
+@media screen and (min-width: 700px) {
 
-    section {
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto;
-        display: grid;
-        height: auto;
-        width: auto;
-    }
 }

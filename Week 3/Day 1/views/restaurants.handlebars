@@ -4,25 +4,24 @@
             <br>
             {{#each menus}}
             <article>
-                <h2 id="menus">{{this.title}}</h2>
-                <dl>{{#each this.items}}</dl>
-                    <div>
+                <h2 class="menus">{{this.title}}</h2>
+                <dl>
+                    {{#each this.items}}
                         <dt>{{this.name}}</dt>
-                        <dd>£{{this.price}}</dd>
+                            <dd>£{{this.price}}</dd>
                         <br>
-                    </div>
                     {{/each}}
                 </dl>
             </article>
     {{/each}}
-     <div id="btn-group">
+     <div class="btn-group">
 
-        <a href="/" id="BnM-BTN">Back</a>
+        <a href="/" id="back-btn" class="BnM-BTN">Back</a>
 
-    <a href="/restaurants/{{restaurant.id}}/edit/" id="BnM-BTN">Edit</a>
+        <a href="/restaurants/{{restaurant.id}}/edit/" id="edit-btn" class="BnM-BTN">Edit</a>
 
         <form action="/restaurants/{{restaurant.id}}/delete" method="post">
-            <input type="submit" id="BnM-BTN" name="Delete" value="Delete"/>
+            <input type="submit" class="BnM-BTN" name="Delete" value="Delete"/>
         </form>
     </div>
 </section>
