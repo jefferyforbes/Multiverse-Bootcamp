@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>DOM Adventure</title>
+        <meta name="description" content="DOM Adventure">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <header>
+        <h1>Save the Kingdom!</h1>
+        <p>The kingdom is under attack from the evil warlock's dragon. <br><br> It is your duty to save the kingdom and restore peace.</p>
+    </header>
+
+    <body>
+        <div class="intro">
+            <h4>What is your name warrior?</h4>
+            <div class="user-input">
+                <label>Name:</label>
+                <input type="text" id="warrior-name" autocomplete="off" oninput="chadWarrior()">
+            </div>
+
+            <p id="chadWindow"></p>
+
+        </div>
+
+        <button onclick="chadWarrior()">
+            Check Event Box
+        </button>
+
+        <p>Your first actions <br> You have 3 options; <br> </p>
+
+        <button onmouseover="dontClick()" onclick="rickRolled()">DO NOT PRESS</button>
+
+        <footer>
+            <script src="app.js"></script>
+        </footer>
+    </body>
+</html>

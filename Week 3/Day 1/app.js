@@ -6,3 +6,30 @@
 
     ga('create', 'UA-XXXXX-Y', 'auto');
     ga('send', 'pageview');
+
+
+    // Page Counter
+
+    var n = localStorage.getItem('on_load_counter');
+
+    if (n === null) {
+        n = 0;
+    }
+    n++;
+
+    localStorage.setItem("on_load_counter", n);
+
+    nums = n.toString().split('').map(Number);
+    document.getElementById('Counter').innerHTML = '';
+    for (var i of nums) {
+        document.getElementById('Counter').innerHTML += '<span class="counter-item">' + i + '</span>';
+    }
+
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId            : 'your-app-id',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v9.0'
+        });
+      };

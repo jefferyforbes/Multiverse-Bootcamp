@@ -123,11 +123,11 @@ h1 {
     grid-template-columns: auto;
 }
 
-article:hover {
+/* article:hover {
     transition: all 5000ms ease;
     overflow: visible;
     height: auto;
-}
+} */
 
 #hiddenLinkName {
     display: none;
@@ -136,7 +136,6 @@ article:hover {
 article {
     border: solid black 1px;
     width: 15rem;
-    overflow: visible;
     height: auto;
     margin: 2rem;
     padding: 2rem;
@@ -189,14 +188,30 @@ section {
 }
 
 /* Large Screen */
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 820px) {
+    body {
+        justify-content: center;
+        display: flex;
+        padding: 3rem;
+        margin: 3rem;
+    }
+    article header {
+        width: auto;
+        height: 18rem;
+    }
+    
+    article {
+      width: auto;
+      height: auto;
+      font-size: 1rem;
+      display: flex;
+    }
+
   section {
       display: grid;
-      grid-template-rows: auto;
-      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto;
+      grid-template-columns: auto auto;
+      grid-auto-flow: row;
+      grid-auto-rows: 0.1fr;
   }
-}
-
-@media screen and (min-width: 700px) {
-
 }
