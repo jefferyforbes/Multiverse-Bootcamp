@@ -5,7 +5,10 @@
 }
 
 body {
-    width: 70%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 80%;
     padding: 5rem;
     margin: 10rem;
     border-radius: 12.6;

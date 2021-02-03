@@ -36,6 +36,6 @@ function dontClick() {
 };
 
 function rickRolled() {
-    let = myWindow = window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "You got Rolled", width=500, height=500)
+    myWindow = window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "You got Rolled", width=500, height=500)
     myWindow.document.write
 }
