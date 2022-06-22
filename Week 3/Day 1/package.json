@@ -18,7 +18,7 @@
     "jsdoc": "^3.6.6",
     "sequelize": "^6.4.0",
     "sqlite": "^4.0.19",
-    "sqlite3": "^5.0.0"
+    "sqlite3": "^5.0.3"
   },
   "devDependencies": {
     "cypress": "^6.4.0"
