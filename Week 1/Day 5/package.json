@@ -10,7 +10,7 @@
         "jst": "0.0.13",
         "modules": "^0.4.0",
         "nodejs": "0.0.0",
-        "sqlite3": "^5.0.1"
+        "sqlite3": "^5.0.3"
     },
     "devDependencies": {},
     "scripts": {
